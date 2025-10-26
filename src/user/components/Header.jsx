@@ -1,10 +1,6 @@
-import React from 'react';
-import { ImBook } from "react-icons/im";
-import { FaInstagram } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { IoLogoReddit } from "react-icons/io5";
 import {
   Avatar,
+  Button,
   Dropdown,
   DropdownDivider,
   DropdownHeader,
@@ -15,38 +11,52 @@ import {
   NavbarLink,
   NavbarToggle,
 } from "flowbite-react";
+import { HiAdjustments, HiCloudDownload, HiUserCircle } from "react-icons/hi";
+import { ImBook } from "react-icons/im";
+import { Link } from "react-router-dom";
+
 
 function Header() {
   return (
-    <header className="w-full bg-white shadow flex flex-col">
-      {/* Top header */}
-      <div className="flex items-center justify-between px-8 py-4 relative">
-        {/* Logo */}
-        <div className="flex items-center space-x-2">
-          <ImBook className="text-3xl text-gray-700" />
-        </div>
-        {/* Store Title - absolutely centered */}
-        <h1 className="absolute left-1/2 transform -translate-x-1/2 text-2xl font-bold tracking-wide">BOOK STORE</h1>
-        {/* Icons + Login */}
-        <div className="flex items-center space-x-4">
-          <a href="#" className="text-lg"><FaInstagram /></a>
-          <a href="#" className="text-lg"><FaXTwitter /></a>
-          <a href="#" className="text-lg"><IoLogoReddit /></a>
-          <button
-            className="ml-4 px-4 py-2 bg-transparent border border-black text-black rounded hover:bg-blue-50 transition"
-          >
+    <>
+      <Navbar fluid rounded>
+        <NavbarBrand href="https://flowbite-react.com">
+          <ImBook className="text-3xl dark:text-white" />
+          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white pl-3">Book Store</span>
+        </NavbarBrand>
+        <div className="flex md:order-2">
+
+          <Button color="cyan" className="mx-3">
+            <HiUserCircle className="me-2 h-4 w-4" />
             Login
-          </button>
+          </Button>
+          <Dropdown
+            arrowIcon={false}
+            inline
+            label={
+              <Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded />
+            }
+          >
+            <DropdownHeader>
+              <span className="block text-sm">Bonnie Green</span>
+              <span className="block truncate text-sm font-medium">name@flowbite.com</span>
+            </DropdownHeader>
+            <Link to={'/profile'}>
+              <DropdownItem>Dashboard</DropdownItem>
+            </Link>
+            <DropdownDivider />
+            <DropdownItem>Sign out</DropdownItem>
+          </Dropdown>
+          <NavbarToggle />
         </div>
-      </div>
-      {/* Navigation Bar - centered */}
-      <nav className="w-full bg-gray-900 text-white px-8 py-2 flex justify-center space-x-8">
-        <a href="/" className="hover:text-gray-400">Home</a>
-        <a href="/books" className="hover:text-gray-400">Books</a>
-        <a href="/careers" className="hover:text-gray-400">Careers</a>
-        <a href="/contact" className="hover:text-gray-400">Contact</a>
-      </nav>
-    </header>
+        <NavbarCollapse>
+          <Link to="/" className="text-white hover:text-gray-400">Home</Link>
+          <Link to="/books" className="text-white hover:text-gray-400">Books</Link>
+          <Link to="/careers" className="text-white hover:text-gray-400">Careers</Link>
+          <Link to="/contact" className="text-white hover:text-gray-400">Contact</Link>
+        </NavbarCollapse>
+      </Navbar>
+    </>
   );
 }
 

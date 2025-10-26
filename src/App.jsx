@@ -12,6 +12,12 @@ import PageNotFound from "./pages/PageNotFound";
 import Contact from "./user/pages/Contact";
 import { useEffect, useState } from "react";
 import Preloader from "./components/Preloader";
+import AdminHome from "./admin/pages/AdminHome";
+import AdminCareers from "./admin/pages/AdminCareers";
+import AdminBooks from "./admin/pages/AdminBooks";
+import AdminSettings from "./admin/pages/AdminSettings";
+import Paymenterror from "./user/pages//Paymenterror";
+import Paymentsuccess from "./user/pages/Paymentsuccess";
 
 function App() {
 
@@ -31,9 +37,17 @@ function App() {
         <Route path ='register' element ={<Auth register/>}/>
         <Route path ='contact' element ={<Contact/>}/>
         <Route path ='allBooks' element ={<AllBooks/>}/>
-        <Route path ='viewbook/:id' element ={<Viewbooks/>}/>
+        <Route path ='viewbooks/:id' element ={<Viewbooks/>}/>
         <Route path ='careers' element ={<Careers/>}/>
         <Route path ='profile' element ={<Profile/>}/>
+        <Route path='/payment-success' element={<Paymentsuccess />} />
+        <Route path='/payment-error' element={<Paymenterror />} />
+
+        <Route path='/admin-home' element={<AdminHome/>} />
+         <Route path='/admin-books' element={<AdminBooks />} />
+        <Route path='/admin-career' element={<AdminCareers />} />
+        <Route path='/admin-settings' element={<AdminSettings />} />
+  
         <Route path ='*' element ={<PageNotFound/>}/>
       </Routes>
     </>

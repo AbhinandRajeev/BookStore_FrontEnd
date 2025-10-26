@@ -1,6 +1,6 @@
 import React from 'react'
 
-function PaymentError() {
+function Paymenterror() {
   return (
     <div>
       <h1>payment Error</h1>
@@ -8,4 +8,4 @@ function PaymentError() {
   )
 }
 
-export default PaymentError
+export default Paymenterror

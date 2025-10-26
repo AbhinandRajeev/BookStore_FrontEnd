@@ -41,7 +41,7 @@ function BookStoreFooter() {
       </div>
       {/* Footer Bottom */}
       <div className="text-center mt-8 text-xs text-gray-300">
-        Copyright © 2023 All rights reserved
+        Copyright © 2025 All rights reserved
         
       </div>
     </footer>

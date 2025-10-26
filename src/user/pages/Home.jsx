@@ -9,7 +9,7 @@ function Home() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative h-[630px] bg-[url('/images/home_bg1.jpg')] bg-no-repeat bg-cover bg-center bg-fixed flex justify-center items-center">
+      <section className="relative h-[670px] bg-[url('/images/home_bg1.jpg')] bg-no-repeat bg-cover bg-center bg-fixed flex justify-center items-center">
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/30 backdrop-blur-[2px]" />
@@ -88,7 +88,34 @@ function Home() {
         </div>
       </section>
 
-      <BookStoreFooter/>
+      {/* Featured Author Section */}
+      <section className="max-w-7xl mx-auto py-10 flex flex-col lg:flex-row items-start justify-between lg:space-x-8">
+        {/* Text */}
+        <div className="w-full lg:w-1/2 px-4 lg:px-0">
+          <div className="text-center lg:text-left">
+            <h4 className="uppercase text-gray-700 tracking-widest text-sm font-serif mb-2">Featured Authors</h4>
+            <h2 className="text-3xl md:text-4xl font-serif font-normal mb-6">Captivates with every word</h2>
+          </div>
+          <p className="text-gray-800 font-serif mb-4 text-base leading-relaxed text-justify">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt fuga nostrum illum distinctio eum quidem recusandae soluta aliquam laboriosam odit quas, nam molestias fugiat culpa rem nulla iste? Modi, molestias. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt earum possimus accusantium necessitatibus id neque soluta quibusdam explicabo laborum? Deserunt vel quia voluptates dicta incidunt illo fuga pariatur sequi error.
+          </p>
+          <p className="text-gray-800 font-serif text-base leading-relaxed text-justify">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt fuga nostrum illum distinctio eum quidem recusandae soluta aliquam laboriosam odit quas, nam molestias fugiat culpa rem nulla iste? Modi, molestias. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt earum possimus accusantium necessitatibus id neque soluta quibusdam explicabo laborum? Deserunt vel quia voluptates dicta incidunt illo fuga pariatur sequi error.
+          </p>
+        </div>
+        {/* Image */}
+        <div className="w-full lg:w-[520px] flex justify-center items-start mt-10 lg:mt-0">
+          <img
+            src="/images/author.webp"
+            alt="Author portrait"
+            className="object-cover w-[400px] h-[400px] rounded"
+          />
+        </div>
+      </section>
+
+
+
+      <BookStoreFooter />
     </div>
   )
 }
