@@ -3,31 +3,7 @@ import { FiMapPin, FiX } from 'react-icons/fi';
 import Header from '../components/Header';
 import BookStoreFooter from '../../components/BookStoreFooter';
 
-const jobs = [
-  {
-    id: 1,
-    title: "Hr Assistant",
-    location: "Kochi",
-    type: "full-time",
-    salary: "20000-30000/month",
-    qualification: "",
-    experience: "1-2yr",
-    description: ""
-  },
-  {
-    id: 2,
-    title: "Frontend Developer",
-    location: "Kochi",
-    type: "full-time",
-    salary: "30000-40000/month",
-    qualification: "",
-    experience: "2-3yr",
-    description: ""
-  }
-];
-
 function Careers() {
-
   const [showModal, setShowModal] = useState(false);
   const [form, setForm] = useState({
     name: "",
@@ -62,7 +38,6 @@ function Careers() {
   };
 
   return (
-
     <>
       <Header/>
       <div className="bg-gray-50 min-h-screen py-10 px-8">
@@ -73,34 +48,56 @@ function Careers() {
 
         <h2 className="text-2xl font-serif mb-8">Current openings</h2>
         <div className="max-w-3xl mx-auto space-y-6">
-          {jobs.map((job) => (
-            <div key={job.id} className="bg-white border rounded shadow-sm p-5 flex justify-between items-center">
-              <div>
-                <div className="font-serif text-lg font-medium mb-2 text-gray-700">{job.title}</div>
-                <div className="flex items-center mb-2 text-blue-800 text-sm">
-                  <FiMapPin className="mr-1" /> {job.location}
-                </div>
-                <div className="text-gray-700 text-sm mb-1">Job Type :{job.type}</div>
-                <div className="text-gray-700 text-sm mb-1">Salary :{job.salary}</div>
-                <div className="text-gray-700 text-sm mb-1">Qualification :{job.qualification || "-"}</div>
-                <div className="text-gray-700 text-sm mb-1">Experience :{job.experience}</div>
-                <div className="text-gray-700 text-sm">Description :{job.description || "-"}</div>
+
+          {/* Job 1 */}
+          <div className="bg-white border rounded shadow-sm p-5 flex justify-between items-center">
+            <div>
+              <div className="font-serif text-lg font-medium mb-2 text-gray-700">Hr Assistant</div>
+              <div className="flex items-center mb-2 text-blue-800 text-sm">
+                <FiMapPin className="mr-1" /> Kochi
               </div>
-              <button
-                onClick={openModal}
-                className="px-8 py-2 bg-[#4d5ac7] text-white rounded hover:bg-[#2a336e] font-serif flex items-center"
-              >
-                Apply
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-              </button>
+              <div className="text-gray-700 text-sm mb-1">Job Type : full-time</div>
+              <div className="text-gray-700 text-sm mb-1">Salary : 20000-30000/month</div>
+              <div className="text-gray-700 text-sm mb-1">Qualification : -</div>
+              <div className="text-gray-700 text-sm mb-1">Experience : 1-2yr</div>
+              <div className="text-gray-700 text-sm">Description : -</div>
             </div>
-          ))}
+            <button
+              onClick={openModal}
+              className="px-8 py-2 bg-[#4d5ac7] text-white rounded hover:bg-[#2a336e] font-serif flex items-center"
+            >
+              Apply
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </button>
+          </div>
+          
+          {/* Job 2 */}
+          <div className="bg-white border rounded shadow-sm p-5 flex justify-between items-center">
+            <div>
+              <div className="font-serif text-lg font-medium mb-2 text-gray-700">Frontend Developer</div>
+              <div className="flex items-center mb-2 text-blue-800 text-sm">
+                <FiMapPin className="mr-1" /> Kochi
+              </div>
+              <div className="text-gray-700 text-sm mb-1">Job Type : full-time</div>
+              <div className="text-gray-700 text-sm mb-1">Salary : 30000-40000/month</div>
+              <div className="text-gray-700 text-sm mb-1">Qualification : -</div>
+              <div className="text-gray-700 text-sm mb-1">Experience : 2-3yr</div>
+              <div className="text-gray-700 text-sm">Description : -</div>
+            </div>
+            <button
+              onClick={openModal}
+              className="px-8 py-2 bg-[#4d5ac7] text-white rounded hover:bg-[#2a336e] font-serif flex items-center"
+            >
+              Apply
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </button>
+          </div>
+
         </div>
 
         {/* Modal */}
         {showModal && (
           <div className="fixed inset-0 z-50 bg-black/30 backdrop-blur-md flex items-center justify-center">
-
             <div className="bg-white rounded-xl shadow-lg w-full max-w-xl mx-auto overflow-hidden relative">
               {/* Modal Header */}
               <div className="bg-[#19213b] py-4 px-6 flex items-center justify-between">
