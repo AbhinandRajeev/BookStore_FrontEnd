@@ -19,6 +19,7 @@ import AdminSettings from "./admin/pages/AdminSettings";
 import Paymenterror from "./user/pages//Paymenterror";
 import Paymentsuccess from "./user/pages/Paymentsuccess";
 
+
 function App() {
 
   const[isLoading,setIsLoading] = useState(false)
@@ -33,8 +34,8 @@ function App() {
     <>
       <Routes>
         <Route path ='' element ={isLoading?<Home/> : <Preloader/>}/>
-        <Route path ='login' element ={<Auth/>}/>
-        <Route path ='register' element ={<Auth register/>}/>
+        <Route path="/login" element={<Auth register={false} />} />
+        <Route path="/register" element={<Auth register={true} />} />
         <Route path ='contact' element ={<Contact/>}/>
         <Route path ='allBooks' element ={<AllBooks/>}/>
         <Route path ='viewbooks/:id' element ={<Viewbooks/>}/>

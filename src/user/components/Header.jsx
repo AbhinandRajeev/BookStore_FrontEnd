@@ -11,12 +11,24 @@ import {
   NavbarLink,
   NavbarToggle,
 } from "flowbite-react";
+import { useEffect, useState } from "react";
 import { HiAdjustments, HiCloudDownload, HiUserCircle } from "react-icons/hi";
 import { ImBook } from "react-icons/im";
 import { Link } from "react-router-dom";
 
 
 function Header() {
+
+  // To hold user details
+  const [userData, setUserData] = useState({})
+
+  // get user details
+  let userDetails = JSON.parse(sessionStorage.getItem('userDetails'))
+  console.log(userDetails);
+
+  useEffect(() => {
+    setUserData(userDetails)
+  }, [])
   return (
     <>
       <Navbar fluid rounded>
@@ -26,27 +38,34 @@ function Header() {
         </NavbarBrand>
         <div className="flex md:order-2">
 
-          <Button color="cyan" className="mx-3">
-            <HiUserCircle className="me-2 h-4 w-4" />
-            Login
-          </Button>
-          <Dropdown
-            arrowIcon={false}
-            inline
-            label={
-              <Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded />
-            }
-          >
-            <DropdownHeader>
-              <span className="block text-sm">Bonnie Green</span>
-              <span className="block truncate text-sm font-medium">name@flowbite.com</span>
-            </DropdownHeader>
-            <Link to={'/profile'}>
-              <DropdownItem>Dashboard</DropdownItem>
-            </Link>
-            <DropdownDivider />
-            <DropdownItem>Sign out</DropdownItem>
-          </Dropdown>
+          {
+            userData ?
+              <Dropdown
+                arrowIcon={false}
+                inline
+                label={
+                  <Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded />
+                }
+              >
+                <DropdownHeader>
+                  <span className="block text-sm">Bonnie Green</span>
+                  <span className="block truncate text-sm font-medium">name@flowbite.com</span>
+                </DropdownHeader>
+                <Link to={'/profile'}>
+                  <DropdownItem>Dashboard</DropdownItem>
+                </Link>
+                <DropdownDivider />
+                <DropdownItem>Sign out</DropdownItem>
+              </Dropdown>
+              :
+              <Link to={'/login'}>
+                <Button color="cyan" className="mx-3">
+                  <HiUserCircle className="me-2 h-4 w-4" />
+                  Login
+                </Button>
+              </Link>
+          }
+
           <NavbarToggle />
         </div>
         <NavbarCollapse>
